@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>✏️ Редактировать тренировку</h2>
+    <h2> Редактировать тренировку</h2>
     <form method="POST">
         <p>Дата: <input type="date" name="workout_date" value="<?= $workout['workout_date'] ?>" required></p>
         <p>Длительность (мин): <input type="number" name="duration" value="<?= $workout['duration_minutes'] ?>" required></p>

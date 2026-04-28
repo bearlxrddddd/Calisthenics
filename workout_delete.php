@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>⚠️ Удалить тренировку</h2>
+    <h2>Удалить тренировку</h2>
     <p>Вы уверены, что хотите удалить тренировку от <strong><?= $workout['workout_date'] ?></strong>?</p>
     <form method="POST">
         <button type="submit" style="color:red">Да, удалить</button>

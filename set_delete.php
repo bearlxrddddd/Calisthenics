@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>⚠️ Удалить подход</h2>
+    <h2> Удалить подход</h2>
     <p>Вы уверены, что хотите удалить подход №<strong><?= $set['set_order'] ?></strong>?</p>
     <form method="POST">
         <button type="submit" style="color:red">Да, удалить</button>

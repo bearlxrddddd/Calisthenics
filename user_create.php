@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>👤 Новый пользователь</h2>
+    <h2>Новый пользователь</h2>
     <form method="POST">
         <p>Имя: <input type="text" name="username" required></p>
         <p>Email: <input type="email" name="email" required></p>

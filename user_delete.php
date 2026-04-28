@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>⚠️ Удалить пользователя</h2>
+    <h2> Удалить пользователя</h2>
     <p>Вы уверены, что хотите удалить <strong><?= htmlspecialchars($user['username']) ?></strong>?</p>
     <form method="POST">
         <button type="submit" style="color:red">Да, удалить</button>

@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>➕ Новая тренировка</h2>
+    <h2> Новая тренировка</h2>
     <form method="POST">
         <p>User ID: <input type="number" name="user_id" required></p>
         <p>Дата: <input type="date" name="workout_date" required></p>

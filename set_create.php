@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>➕ Добавить подход</h2>
+    <h2> Добавить подход</h2>
     <form method="POST">
         <p>Упражнение:
             <select name="exercise_id" required>
