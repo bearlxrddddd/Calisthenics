@@ -1,7 +1,7 @@
 <?php
 require 'config.php';
 
-// ========== ТРЕНИРОВКИ ==========
+// ТРЕНИРОВКИ
 function getAllWorkouts($pdo) {
     $stmt = $pdo->query("SELECT * FROM workouts ORDER BY workout_date DESC");
     return $stmt->fetchAll();
@@ -43,7 +43,7 @@ function deleteWorkoutSets($pdo, $workout_id) {
     return $stmt->execute(['workout_id' => $workout_id]);
 }
 
-// ========== ПОЛЬЗОВАТЕЛИ ==========
+//  ПОЛЬЗОВАТЕЛИ 
 function getAllUsers($pdo) {
     $stmt = $pdo->query("SELECT * FROM users");
     return $stmt->fetchAll();
@@ -81,7 +81,7 @@ function deleteUser($pdo, $id) {
     return $stmt->execute(['id' => $id]);
 }
 
-// ========== ПОДХОДЫ ==========
+//  ПОДХОДЫ
 function getAllExercises($pdo) {
     $stmt = $pdo->query("SELECT * FROM exercises");
     return $stmt->fetchAll();

@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h2> Редактировать тренировку</h2>
     <form method="POST">
-        <p>Дата: <input type="date" name="workout_date" value="<?= $workout['workout_date'] ?>" required></p>
-        <p>Длительность (мин): <input type="number" name="duration" value="<?= $workout['duration_minutes'] ?>" required></p>
+        <p>Дата: <input type="date" name="workout_date" value="<?= $workout['workout_date'] ?>" ></p>
+        <p>Длительность (мин): <input type="number" name="duration" value="<?= $workout['duration_minutes'] ?>" ></p>
         <p>Заметки: <textarea name="notes"><?= htmlspecialchars($workout['notes']) ?></textarea></p>
         <button type="submit">Обновить</button>
         <a href="index.php">Отмена</a>

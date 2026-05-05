@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h2> Новая тренировка</h2>
     <form method="POST">
-        <p>User ID: <input type="number" name="user_id" required></p>
-        <p>Дата: <input type="date" name="workout_date" required></p>
-        <p>Длительность (мин): <input type="number" name="duration" required></p>
+        <p>User ID: <input type="number" name="user_id" ></p>
+        <p>Дата: <input type="date" name="workout_date" ></p>
+        <p>Длительность (мин): <input type="number" name="duration" ></p>
         <p>Заметки: <textarea name="notes"></textarea></p>
         <button type="submit">Сохранить</button>
         <a href="index.php">Назад</a>

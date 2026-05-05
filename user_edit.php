@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h2>Редактировать пользователя</h2>
     <form method="POST">
-        <p>Имя: <input type="text" name="username" value="<?= htmlspecialchars($user['username']) ?>" required></p>
-        <p>Email: <input type="email" name="email" value="<?= $user['email'] ?>" required></p>
+        <p>Имя: <input type="text" name="username" value="<?= htmlspecialchars($user['username']) ?>" ></p>
+        <p>Email: <input type="email" name="email" value="<?= $user['email'] ?>" ></p>
         <p>Вес (кг): <input type="number" step="0.1" name="weight" value="<?= $user['weight_kg'] ?>"></p>
         <p>Рост (см): <input type="number" name="height" value="<?= $user['height_cm'] ?>"></p>
         <button type="submit">Обновить</button>

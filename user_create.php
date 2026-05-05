@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h2>Новый пользователь</h2>
     <form method="POST">
-        <p>Имя: <input type="text" name="username" required></p>
-        <p>Email: <input type="email" name="email" required></p>
+        <p>Имя: <input type="text" name="username" ></p>
+        <p>Email: <input type="email" name="email" ></p>
         <p>Вес (кг): <input type="number" step="0.1" name="weight"></p>
         <p>Рост (см): <input type="number" name="height"></p>
         <button type="submit">Создать</button>
