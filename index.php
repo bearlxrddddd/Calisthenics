@@ -16,7 +16,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: /index.php?page=login&action=login");
     exit;
 }
-
+kk
 if ($page === 'workouts') {
     if ($action === 'list') {
         require './models/WorkoutModel.php';
