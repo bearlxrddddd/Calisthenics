@@ -1,75 +1,40 @@
 <?php
-require 'functions.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require './config/config.php';
+session_start();
 
-$workouts = getAllWorkouts($pdo);
-$users = getAllUsers($pdo);
+$page = $_GET['page'] ?? 'login';
+$action = $_GET['action'] ?? 'login';
+
+if ($page === 'login') {
+    require './controllers/LoginController.php';
+    exit;
+}
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /index.php?page=login&action=login");
+    exit;
+}
+
+if ($page === 'workouts') {
+    if ($action === 'list') {
+        require './models/WorkoutModel.php';
+        $workouts = getAllWorkouts($pdo);
+        $users = getAllUsers($pdo);
+        require './views/workouts/index.php';
+    } else {
+        require './controllers/WorkoutController.php';
+    }
+}
+elseif ($page === 'users') {
+    require './controllers/UserController.php';
+}
+elseif ($page === 'sets') {
+    require './controllers/SetController.php';
+}
+else {
+    http_response_code(404);
+    echo "Страница не найдена";
+}
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Калистеника </title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1> Калистеника </h1>
-    
-    <div class="menu">
-        <h3> Тренировки</h3>
-        <a href="workout_create.php">Добавить тренировку</a>
-        
-        <h3> Пользователи</h3>
-        <a href="user_create.php">Добавить пользователя</a>
-        
-    </div>
-    
-    <h2> Список тренировок</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Дата</th>
-            <th>Длит.</th>
-            <th>Заметки</th>
-            <th>Действия</th>
-        </tr>
-        <?php foreach($workouts as $workout): ?>
-        <tr>
-            <td><?= $workout['id'] ?></td>
-            <td><?= $workout['workout_date'] ?></td>
-            <td><?= $workout['duration_minutes'] ?> мин</td>
-            <td><?= htmlspecialchars($workout['notes']) ?></td>
-            <td>                
-                <a href="workout_view.php?id=<?= $workout['id'] ?>">Просмотр</a>
-                <a href="workout_edit.php?id=<?= $workout['id'] ?>">Изменить</a>
-                <a href="workout_delete.php?id=<?= $workout['id'] ?>">Удалить</a>
-                        <a href="set_create.php?workout_id=<?= $workout['id']?>">Добавить подход</a>
-
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-    
-    <h2> Пользователи</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Имя</th>
-            <th>Email</th>
-            <th>Вес</th>
-            <th>Действия</th>
-        </tr>
-        <?php foreach($users as $user): ?>
-        <tr>
-            <td><?= $user['id'] ?></td>
-            <td><?= htmlspecialchars($user['username']) ?></td>
-            <td><?= $user['email'] ?></td>
-            <td><?= $user['weight_kg'] ?> кг</td>
-            <td>
-                <a href="user_edit.php?id=<?= $user['id'] ?>">Изменить</a>
-                <a href="user_delete.php?id=<?= $user['id'] ?>">Удалить</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-</body>
-</html>
