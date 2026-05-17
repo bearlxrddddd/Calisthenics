@@ -47,30 +47,26 @@ function deleteUser($pdo, $id) {
 function loginUser($pdo, $email, $password) {
     $user = getUserByEmail($pdo, $email);
     
-    if ($user && $password === $user['password']) {
+    if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'] ?? 'user';
         return true;
     }
     return false;
 }
 
-function registerUser($pdo, $username, $email, $password, $weight, $height) {
-    $stmt = $pdo->prepare("INSERT INTO users (username, email, password, weight_kg, height_cm) VALUES (:username, :email, :password, :weight, :height)");
+function registerUser($pdo, $username, $email, $password, $weight, $height, $experience_level) {
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
+    $stmt = $pdo->prepare("INSERT INTO users (username, email, password, weight_kg, height_cm, experience_level, role) VALUES (:username, :email, :password, :weight, :height, :level, 'user')");
     return $stmt->execute([
         'username' => $username,
         'email' => $email,
-        'password' => $password,
+        'password' => $hashed_password,
         'weight' => $weight,
-        'height' => $height
+        'height' => $height,
+        'level' => $experience_level
     ]);
-}
-
-function isLoggedIn() {
-    return isset($_SESSION['user_id']);
-}
-
-function logoutUser() {
-    session_destroy();
 }
 ?>

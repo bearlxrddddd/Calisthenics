@@ -1,10 +1,13 @@
-<?php 
-require './menu/header.php'; 
-?>
-<h1> Калистеника </h1>
-    
-    <div class="menu">
-        <h3> Тренировки</h3>
-        <a href="workout_create.php">Добавить тренировку</a>
-    </div>
-    <?php require './menu/footer.php';?>
+<?php require './menu/header.php'; ?>
+
+<h2>Новая тренировка</h2>
+
+<form method="POST" action="/index.php?page=workouts&action=create">
+    <p>Дата: <input type="date" name="workout_date" required></p>
+    <p>Длительность (мин): <input type="number" name="duration" required></p>
+    <p>Заметки: <textarea name="notes"></textarea></p>
+    <button type="submit">Сохранить</button>
+    <a href="/index.php?page=workouts&action=list">Назад</a>
+</form>
+
+<?php require './menu/footer.php'; ?>

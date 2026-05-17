@@ -1,3 +1,10 @@
+<?php
+if (isset($_SESSION['user_id'])) {
+    header("Location: /index.php?page=workouts&action=list");
+    exit;
+}
+?>
+
 <?php require './menu/header.php'; ?>
 
 <h2>Вход в систему</h2>
@@ -6,9 +13,9 @@
     <p style="color:red"><?= $error ?></p>
 <?php endif; ?>
 
-<form method="POST">
-    <p>Email: <input type="email" name="email"></p>
-    <p>Пароль: <input type="password" name="password"></p>
+<form method="POST" action="/index.php?page=login&action=login">
+    <p>Email: <input type="email" name="email" required></p>
+    <p>Пароль: <input type="password" name="password" required></p>
     <button type="submit">Войти</button>
 </form>
 
